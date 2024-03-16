@@ -1,0 +1,8 @@
+#!/bin/bash
+
+./scripts/clean.sh
+./scripts/generate-ssl-certs.sh
+./scripts/setenv.sh
+docker build --no-cache -t xanimo/mongo .
+# overwrite host mongo with localhost (127.0.0.1)
+cat .env | sed -E 's/(@)[^:]+(:.*)/\1127.0.0.1\2/' | tee .env
