@@ -34,7 +34,7 @@ echo MONGO_INITDB_ROOT_USERNAME=admin >> .env
 echo MONGO_INITDB_ROOT_PASSWORD="$USER_PASSWORD" >> .env
 echo MONGODB_USER=user >> .env
 echo MONGODB_PASSWORD="$USER_PASSWORD" >> .env
-echo MONGODB_URI="mongodb://user:$(rawurlencode $USER_PASSWORD)@$(./internals/scripts/inside.sh):27017/users?ssl=true&tlsInsecure=true&retryWrites=true&serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=users&authMechanism=SCRAM-SHA-256" >> .env
+echo MONGODB_URI="mongodb://user:$(rawurlencode $USER_PASSWORD)@$(./scripts/inside.sh):27017/users?ssl=true&tlsInsecure=true&retryWrites=true&serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=users&authMechanism=SCRAM-SHA-256" >> .env
 rm password
 
 echo "Randomized environment variables have been written"
